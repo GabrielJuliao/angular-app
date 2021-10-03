@@ -1,0 +1,6 @@
+<app-add-task (addTaskEvt)="createTask($event)"></app-add-task>
+<p *ngIf="errorMsg" [ngStyle]="{'color':'red', 'text-align': 'center'}">{{errorMsg}}</p>
+<app-tasks-item
+  *ngFor="let task of tasks"
+  [task]="task" (onDeleteTaskEvt)="deleteTask(task)"
+  (onToggleTaskItemEvt)="setReminder(task)"></app-tasks-item>
